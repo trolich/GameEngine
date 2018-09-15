@@ -158,15 +158,17 @@ void MapManager::PurgeMaps()
 
 void MapManager::CheckExits() // Cycle through the list of exit tiles and check for entity collision
 {
-
+	// TODO: Loop through the exits and check if they contain the player
 }
 
 void MapManager::CheckTileCollisions() // Check surrounding tiles
 {
-
+	// TODO: Check tile collisions for the entities on the screen
+	// Send corresponding messages with the system manager
 }
 
 void MapManager::CenterScreen() // Adjust the screen so that it centers on the player
 {
-
+	// TODO: Move the center of the screen to the player, if the player is close to the edge
+	// of the screen, adjust accordingly
 }
