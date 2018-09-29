@@ -36,6 +36,8 @@ public:
 	void RemoveMap(const MapType&, const std::string&);
 	SharedContext* GetSharedContext() { return m_shared; }
 
+	std::string& GetAreaType(std::string& l_area) { return m_areaTypes[l_area]; }
+
 	void Load(const MapType& l_type, const std::string& l_name); // Switch between different maps,
 
 private:

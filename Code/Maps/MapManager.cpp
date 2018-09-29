@@ -158,7 +158,7 @@ void MapManager::PurgeMaps()
 
 void MapManager::CheckExits() // Cycle through the list of exit tiles and check for entity collision
 {
-	// TODO: Loop through the exits and check if they contain the player
+	m_currentMap->CheckExits();
 }
 
 void MapManager::CheckTileCollisions() // Check surrounding tiles

@@ -48,9 +48,3 @@ struct Tile
 };
 
 using TileSet = std::unordered_map<unsigned int, TileInfo*>;
-
-/*struct Exit : public Tile
-{
-	std::string m_toMap;
-	MapType m_toMapType;
-};*/

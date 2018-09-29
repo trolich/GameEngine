@@ -7,7 +7,7 @@ using Exits = std::vector<Exit>;
 class Map_OpenWorld : public Map
 {
 public:
-	Map_OpenWorld(MapManager*);
+	Map_OpenWorld(MapManager*, std::string);
 	~Map_OpenWorld();
 
 	void ReadIn(const std::string& l_mapFile);

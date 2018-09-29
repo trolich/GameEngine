@@ -3,7 +3,7 @@
 
 void Map::PurgeEntities()
 {
-
+	m_mapManager->GetSharedContext()->m_sharedEntityMgr->Purge();
 }
 
 void Map::PurgeTiles()
@@ -11,6 +11,13 @@ void Map::PurgeTiles()
 
 }
 
+/*  This function reads in files in the form
+Texture <texture name>
+SheetSize <x y>
+TileSize <size>
+
+Tile <ID> <Type> <Special> (unsigned int, TileType enum, char)
+*/
 void Map::ReadInTiles(const std::string& l_tileFile) // Take in a file name and populate the TileSet map
 {
 	std::ifstream tiles;

@@ -45,16 +45,20 @@ protected:
 	virtual void ReadInTiles(const std::string& l_tileFile); // Take in a file name and populate the TileSet map
 
 	sf::Vector2u m_mapSize; // Total number of tiles for a given map
+	sf::Vector2u m_tileSize;
 	MapType m_mapType;
 	MapManager* m_mapManager;
 	std::string m_mapName;
 	TileSet m_tileSet;
+	std::vector<Tile*> m_tiles;
 };
 
 struct Exit
 {
 	sf::IntRect m_bounds; // The bounds act as trigger, once the player is contained within it will trigger an exit
 	sf::Vector2i m_size; // The size is typically the same as the other tiles
-	sf::Vector2u m_position; // The position is the top right corner of the bounds
-	Map* m_toMap;
+	sf::Vector2f m_position; // The position is the top right corner of the bounds
+	MapType m_toMapType;
+	std::string m_toMapName;
+	sf::Vector2f m_toPos;
 };
