@@ -62,12 +62,21 @@ void Map_OpenWorld::ReadIn(const std::string& l_mapFile)
 		}
 		else if (type == "Entity")
 		{
-
+			// TODO: Add entities to manager
 		}
 		else if (type == "Exit")
 		{
-
+			// TODO: Add exits to exit vector
 		}
 	}
 	
+}
+
+void Map_OpenWorld::Draw(sf::RenderWindow* l_window)
+{
+	for (Tile* tile : m_tiles)
+	{
+		l_window->draw(tile->m_info->m_sprite);
+	}
+
 }
