@@ -6,7 +6,7 @@
 enum class MapType{
 	OpenWorld = 0, Dungeon, Building };
 
-class MapManager; // make sure to set window here
+class MapManager;
 
 using MapTiles = std::unordered_map<unsigned int, Tile*>;
 
@@ -21,12 +21,14 @@ public:
 
 	virtual void ReadIn(const std::string&) = 0; // Read in tile and entity info from a text file to populate the map
 	virtual void Draw(sf::RenderWindow*) = 0;
+	virtual void CheckExits() = 0;
 
 	sf::Vector2u GetMapSize() { return m_mapSize; }
 	const MapType& GetType() { return m_mapType; }
 
 	void SetName(const std::string& l_name) { m_mapName = l_name; }
 	const std::string& GetName() { return m_mapName; }
+
 protected:
 	virtual void OnStartLoad() = 0; // Called when the read in method begins
 	virtual void OnFinishLoad() = 0; // Called when the read in method finishes
@@ -47,4 +49,12 @@ protected:
 	MapManager* m_mapManager;
 	std::string m_mapName;
 	TileSet m_tileSet;
+};
+
+struct Exit
+{
+	sf::IntRect m_bounds; // The bounds act as trigger, once the player is contained within it will trigger an exit
+	sf::Vector2i m_size; // The size is typically the same as the other tiles
+	sf::Vector2u m_position; // The position is the top right corner of the bounds
+	Map* m_toMap;
 };

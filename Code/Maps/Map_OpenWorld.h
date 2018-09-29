@@ -2,6 +2,8 @@
 #include "Map.h"
 #include "MapManager.h"
 
+using Exits = std::vector<Exit>;
+
 class Map_OpenWorld : public Map
 {
 public:
@@ -15,4 +17,6 @@ public:
 private:
 	void OnStartLoad();
 	void OnFinishLoad();
+
+	Exits m_exits;
 };
