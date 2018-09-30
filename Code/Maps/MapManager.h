@@ -42,10 +42,10 @@ public:
 
 private:
 	template<class T>
-	void RegisterMapType(const MapType& l_type)
+	void RegisterMapType(const MapType& l_type, const std::string& name)
 	{
 		m_mapFactory[l_type] = [this]() -> {
-			return new T(this);
+			return new T(this, name); // All Map objects must take the parameters, (map manager, name)
 		}
 	}
 

@@ -12,7 +12,7 @@ public:
 
 	void ReadIn(const std::string& l_mapFile);
 	void Draw(sf::RenderWindow*);
-	void CheckExits();
+	void CheckExits(EntityID);
 	void OnCreate();
 	void OnDestroy();
 

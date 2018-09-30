@@ -4,6 +4,7 @@
 MapManager::MapManager(SharedContext* l_shared) : m_shared(l_shared), m_currentMap(nullptr), m_backgroundMap(nullptr)
 {
 	m_window = &m_shared->m_sharedWindow->GetRenderWindow();
+	LoadAreaTypes("AreaTypes.cfg");
 	// Register maps
 }
 
@@ -171,4 +172,30 @@ void MapManager::CenterScreen() // Adjust the screen so that it centers on the p
 {
 	// TODO: Move the center of the screen to the player, if the player is close to the edge
 	// of the screen, adjust accordingly
+}
+
+void MapManager::LoadAreaTypes(const std::string& l_areaFile)
+{
+	std::ifstream file;
+	file.open(Utils::GetWorkingDirectory() + l_areaFile);
+	if (!file.is_open())
+	{
+		std::cout << "Area Types could not be loaded!" << std::endl;
+		return;
+	}
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		std::stringstream keystream(line);
+		if (line[0] == '|')
+			continue;
+		
+		std::string name;
+		std::string fileLocation;
+
+		keystream >> name >> fileLocation;
+		m_areaTypes[name] = fileLocation;
+	}
+	file.close();
 }
